@@ -21,7 +21,6 @@ class ProductsController < ApplicationController
     def update 
       @product = Product.find_by(id: params[:id])
 
-
       @product.name = params[:name] || product.name
       @product.price = params[:price] || product.price
       @product.image_url = params[:image_url] || product.image_url
@@ -30,6 +29,11 @@ class ProductsController < ApplicationController
     end
     @product.save
     render :show
+    def destroy
+      @product = Product.find_by(id: params[:id])
+      @product.destroy
+      render json: {message:"Product has been successfully removed"}
+    end
   end
 end
 
