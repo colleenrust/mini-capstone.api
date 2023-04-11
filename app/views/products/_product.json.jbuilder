@@ -4,3 +4,4 @@ json.price product.price
 json.image_url product.image_url
 json.updated_at product.updated_at
 json.created_at product.created_at
+json. product
