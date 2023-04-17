@@ -7,7 +7,20 @@
 
 #   {name: "target", email: "target@fun.co", phone_number: "5556667878"}
 # ])
-Image.create(
+# products = Product.all
+
+# products.each do |product|
+#   if product.image_url
+#     image = Image.new(
+#       url: product.image_url
+#       product_id: product.id
+#     )
+#     image.save!
+#   end
+# end
+
+
+# Image.create(
 
   
-)
+# )

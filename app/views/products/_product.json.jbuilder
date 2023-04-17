@@ -1,7 +1,11 @@
+json.created_at product.created_at
 json.id product.id
 json.name product.name
 json.price product.price
-json.image_url product.image_url
-json.updated_at product.updated_at
-json.created_at product.created_at
-json. product
+json.description product.description
+json.is_discounted? product.is_discounted?
+json.tax product.tax
+json.total product.total
+json.quantity product.quantity
+json.supplier product.supplier
+json.images product.images
