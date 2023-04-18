@@ -4,13 +4,14 @@ Rails.application.routes.draw do
   post "/products" => "products#create"
   # patch "/products/:id" => "products#update"
   # delete "/products/:id" => "products#destroy"
-  get "/suppliers" => "suppliers#index"
-  get "/suppliers/:id" => "suppliers#show"
-  post "/suppliers" => "suppliers#create"
+  # get "/suppliers" => "suppliers#index"
+  # get "/suppliers/:id" => "suppliers#show"
+  # post "/suppliers" => "suppliers#create"
 
   post "/users" => "users#create"
-  
   post "/sessions" => "sessions#create"
 
+  get "/orders" => "orders#index"
   post "/orders" => "orders#create"
+  get "/orders:id" => "orders#show"
 end

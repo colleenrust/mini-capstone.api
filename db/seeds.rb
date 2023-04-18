@@ -8,16 +8,10 @@
 #   {name: "target", email: "target@fun.co", phone_number: "5556667878"}
 # ])
 # products = Product.all
+# product = Product.find_by(id: 5)
 
-# products.each do |product|
-#   if product.image_url
-#     image = Image.new(
-#       url: product.image_url
-#       product_id: product.id
-#     )
-#     image.save!
-#   end
-# end
+# image = Image.new(url: "something",product_id: 5)
+# image.save
 
 
 # Image.create(

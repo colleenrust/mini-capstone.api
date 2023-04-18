@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_action :authenticate_admin, except: [:index, :show]
   def index
     @products = Product.all
     render :index
@@ -15,7 +16,12 @@ class ProductsController < ApplicationController
       updated_at: params[:updated_at],
       supplier_id: params[:supplier_id]
     )
-    if    @product.save
+    if @product.save
+      @image = Image.new(
+        url: params[:image_url],
+        product_id: @product_id
+      )
+      @image.save!
       render :show
     else 
       render json: {errors:@product.errors.full_messages},status:
