@@ -9,3 +9,4 @@ json.total product.total
 json.quantity product.quantity
 json.supplier product.supplier
 json.images product.images
+json.categories product.categories
