@@ -1,8 +1,8 @@
 class ProductsController < ApplicationController
   before_action :authenticate_admin, except: [:index, :show]
   def index
-    @products = Product.all
-    render :index
+    @product = Product.all
+    render:show
   end
   def show
     @product = Product.find_by(id: params[:id])
