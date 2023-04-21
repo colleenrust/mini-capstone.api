@@ -6,21 +6,22 @@ class OrdersController < ApplicationController
   end
   def create
     # subtotal = quantity * price
-    product = Product.find_by(id: params[:product_id])
-    calculated_subtotal = params[:quantity].to_i * product.price
-    
-    calculated_tax = calculated_subtotal * 0.09
+    carted_products = current_user.carted_products.where(status:"carted")
+    carted_products.each do |carted_product|
+      calculated_subtotal += carted_product.quantity * carted_product.price
+    end
+    tax_rate = 0.09
+    calculated_tax = calculated_subtotal * tax_rate
     calculated_total = calculated_subtotal + calculated_tax
     
     @order = Order.new(
       user_id: current_user.id,
-      product_id: params[:product_id],
-      quantity: params[:quantity],
       subtotal: calculated_subtotal,
       tax: calculated_tax,
       total: calculated_total,
     )
     @order.save
+    carted_products.update_all(status:"purchased", order_id: @order_id)
     render :show
   end
   def show
